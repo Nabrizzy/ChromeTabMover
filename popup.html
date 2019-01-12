@@ -2,15 +2,34 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <script src="lib/jquery.js"></script>
         <style>
+
             body{
                 width: 200px;
-                height: 300px;
+                height: 200px;
             }
+
+            #content{
+                width: 50%;
+                margin: 30% auto;
+            }
+
+            button{outline:none !important;}
+            button:hover{outline:none !important;}
+            button:focus{outline:none !important;}
+            button:visited{outline:none !important;}
+            button:focus-within{outline:none !important;}
+            button:active{outline:none !important;}
+
         </style>
     </head>
     <body>
-        
+        <div id="content">
+            <button id="toggleButton" class="btn btn-sm btn-block"></button>
+        </div>
+
         <script src="popup.js"></script>
     </body>
 </html>

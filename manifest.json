@@ -2,7 +2,7 @@
 	"name": "Tab Mover",
 	"version": "1.0",
 	"description": "Use shortcut to move current tab",
-	"permissions": ["activeTab", "tabs"],
+	"permissions": ["activeTab", "tabs", "declarativeContent"],
 	"options_page": "options.html",
 	"background": {
 		"scripts": ["background.js"],
@@ -11,7 +11,7 @@
 	"browser_action": {
 		"default_popup": "popup.html",
 		"default_icon": {
-			"128": "images/icongray128.png"
+			"128": "images/icon128.png"
 		}
 	},
 	"icons": {
@@ -20,5 +20,31 @@
 		"48": "images/icon48.png",
 		"128": "images/icon128.png"
 	},
+    "commands": {
+        "tableft" : {
+            "suggested_key": {
+                "default": "Alt+Shift+Left"
+            },
+        "description": "Step one tab back"
+        },
+        "tabright": {
+            "suggested_key": {
+                "default": "Alt+Shift+Right"
+            },
+        "description": "Step one tab forward"
+        },
+        "maxleft": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Left"
+            },
+        "description": "Jump to left end"
+        },
+        "maxright": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Right"
+            },
+        "description": "Jump to right end"
+        }
+    },
 	"manifest_version": 2
 }

@@ -1,3 +1,72 @@
 <!DOCTYPE HTML>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tab Mover Guide</title>
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <script src="lib/jquery.js"></script>
+        <style>
+            body{
+                background-color: darksalmon;
+                font-family: Calibri;
+                color: #333;
+            }
+
+            #content{
+                background-color: #ffffff;
+                height: 100%;
+                margin-top: 50px;
+            }
+
+            #innerContent{
+                position: relative;
+                margin: 15px auto;
+                width: 50%;
+            }
+
+            table{
+                width: 100%;
+            }
+
+            td{
+                width: 50%;
+                padding: 5px 15px;
+                font-size: 1.2em;
+            }
+
+            .infoText{
+                color: darkgreen;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="content">
+            <h1>Tab Mover Guide Page</h1><hr>
+            <div id="innerContent">
+                <table>
+                    <tr>
+                        <td>Alt + Shift + Left</td>
+                        <td><b>Move tab to left</b></td>
+                    </tr>
+                    <tr>
+                        <td>Alt + Shift + Right</td>
+                        <td><b>Move tab to right</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl + Shift + Left</td>
+                        <td><b>Move tab to left end</b></td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl + Shift + Right</td>
+                        <td><b>Move tab to right end</b></td>
+                    </tr>
+                </table>
+
+                <br><br>
+
+                <p class="infoText">This extension starts with every browser start. Use popup panel to disable temporarily. Go to chrome://extensions/ to disable permanently!</p>
+            </div>
+        </div>
+    </body>
 </html>
