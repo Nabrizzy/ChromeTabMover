@@ -32,16 +32,6 @@ function move(tabId, index) {
     chrome.tabs.move(tabId, { index: index });
 }
 
-async function debug(command) {
-    let selectedTabs = await chrome.tabs.query({
-        highlighted: true
-    });
-    let index = selectedTabs[0].index;
-    chrome.tabs.move(selectedTabs[0].id, {
-        index: index + 1
-    });
-}
-
 async function moveLeft() {
     let tabs = (await getSelectedTabs());
     let shifted = false;
@@ -59,15 +49,34 @@ async function moveLeft() {
 }
 
 async function moveRight() {
+    let tabs = (await getSelectedTabs()).reverse();
+    let shifted = false;
 
+    for (let i = 0, tab = tabs[i]; i < tabs.length; i++, tab = tabs[i]) {
+        if (!shifted) {
+            let index = tab.index;
+            let newIndex = await getNextSlot(index);
+            move(tab.id, newIndex);
+            if (newIndex < index) {
+                shifted = true;
+            }
+        }
+    }
 }
 
 async function jumpLeft() {
-
+    let tabs = (await getSelectedTabs());
+    for (let i = 0, tab = tabs[i]; i < tabs.length; i++, tab = tabs[i]) {
+        move(tab.id, i);
+    }
 }
 
 async function jumpRight() {
-
+    let tabs = (await getSelectedTabs()).reverse();
+    let lastIndex = (await getAllTabs()).length - 1;
+    for (let i = 0, tab = tabs[i]; i < tabs.length; i++, tab = tabs[i]) {
+        move(tab.id, lastIndex--);
+    }
 }
 
 async function getPreviousSlot(index) {
@@ -75,4 +84,12 @@ async function getPreviousSlot(index) {
         return (await getAllTabs()).length - 1;
     }
     return index -1;
+}
+
+async function getNextSlot(index) {
+    let lastIndex = (await getAllTabs()).length - 1;
+    if (index + 1 > lastIndex) {
+        return 0;
+    }
+    return index + 1;
 }
