@@ -1,50 +1,36 @@
 {
-	"name": "Tab Mover",
-	"version": "1.0",
-	"description": "Use shortcut to move current tab",
-	"permissions": ["activeTab", "tabs", "declarativeContent"],
-	"options_page": "options.html",
-	"background": {
-		"scripts": ["background.js"],
-		"persistent": true
-	},
-	"browser_action": {
-		"default_popup": "popup.html",
-		"default_icon": {
-			"128": "images/icon128.png"
-		}
-	},
-	"icons": {
-		"16": "images/icon16.png",
-		"32": "images/icon32.png",
-		"48": "images/icon48.png",
-		"128": "images/icon128.png"
-	},
+	"manifest_version": 3,
+    "name": "Tab-Mover",
+    "description": "Move your tabs with shortcuts",
+    "version": "0.1",
+    "permissions": ["tabs"],
+    "background": {
+        "service_worker": "service.js"
+    },
     "commands": {
-        "tableft" : {
+        "moveLeft": {
             "suggested_key": {
                 "default": "Alt+Shift+Left"
             },
-        "description": "Step one tab back"
+            "description": "Moves active tab to left"
         },
-        "tabright": {
+        "moveRight": {
             "suggested_key": {
-                "default": "Alt+Shift+Right"
+                "default": "Alt+Shift+Left"
             },
-        "description": "Step one tab forward"
+            "description": "Moves active tab to right"
         },
-        "maxleft": {
+        "jumpLeft": {
             "suggested_key": {
-                "default": "Ctrl+Shift+Left"
+                "default": "Alt+Shift+Left"
             },
-        "description": "Jump to left end"
+            "description": "Moves active tab to left end"
         },
-        "maxright": {
+        "jumpRight": {
             "suggested_key": {
-                "default": "Ctrl+Shift+Right"
+                "default": "Alt+Shift+Left"
             },
-        "description": "Jump to right end"
+            "description": "Moves active tab to right end"
         }
-    },
-	"manifest_version": 2
+    }
 }
