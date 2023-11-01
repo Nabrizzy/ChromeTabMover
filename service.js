@@ -12,6 +12,9 @@ chrome.commands.onCommand.addListener(command => {
         case "jumpRight":
             jumpRight();
             break;
+        case "undock":
+            undock();
+            break;
     }
 });
 
@@ -92,4 +95,14 @@ async function getNextSlot(index) {
         return 0;
     }
     return index + 1;
+}
+
+async function undock() {
+    let allTabs = await getAllTabs();
+    let selectedTabs = await getSelectedTabs();
+    if (allTabs.length <= selectedTabs.length) {
+        return;
+    }
+    let newWindow = await chrome.windows.create({ focused: false });
+    console.log(newWindow);
 }

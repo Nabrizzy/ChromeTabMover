@@ -3,7 +3,9 @@
     "name": "Tab-Mover",
     "description": "Move your tabs with shortcuts",
     "version": "0.1",
-    "permissions": ["tabs"],
+    "action": {
+        "default_icon": "images/128.png"
+    },
     "background": {
         "service_worker": "service.js"
     },
