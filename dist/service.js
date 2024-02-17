@@ -26,7 +26,9 @@ async function getAllTabs() {
 }
 
 async function getSelectedTabs() {
+    let windowId = (await chrome.windows.getCurrent()).id;
     return await chrome.tabs.query({
+        windowId: windowId,
         highlighted: true
     });
 }
